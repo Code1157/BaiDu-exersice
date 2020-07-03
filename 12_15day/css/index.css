@@ -1,0 +1,675 @@
+* {
+  list-style: none;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  min-width: 1000px;
+}
+/*————左侧1固定栏开始 */
+/* 自适应 《 */
+#list_left1 {
+  left: 0;
+  top: 0;
+  min-width: 90px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+#list_left1 .left1_cen{
+  width: 90px;
+  background-color: #1D2530;
+}
+#list_left1 #left1_up {
+  min-height: 300px;
+}
+#list_left1 #list1_auto {
+  flex: 1;
+}
+#list_left1 #left1_down {
+  min-height: 45px;
+}
+/* 》 自适应*/
+#left1_up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+#list_left1 #left1_down {
+  display: flex;
+  flex-wrap: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+/*其他*/
+#list_left1 img {
+  cursor: pointer;
+}
+/*————左侧1固定栏结束 */
+/*————左侧2固定栏开始 */
+#list_left2 {
+  min-width: 250px;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 90px;
+  display: flex;
+  flex-direction: column;
+  background-color: #232C3D;
+  position: fixed;
+}
+#list_left2 .left2_box {
+  width: 192px;
+  box-sizing: border-box;
+  padding-top: 20px;
+  background-color: #232C3D;
+  color: rgb(200, 200, 200);
+  margin: 0 auto;
+}
+#left2_b1 {
+  min-height: 250px;
+  border-bottom: 1px solid rgb(60,70,80);
+}
+#left2_b2 {
+  min-height: 220px;
+  border-bottom: 1px solid rgb(60,70,80);
+}
+#left2_b3 {
+  min-height: 240px;
+}
+#left2_auto {
+  flex: 1;
+}
+#left2_b4 {
+  min-height: 60px;
+}
+/*menu*/
+#list_left2 p {
+  width: 160px;
+  font-size: 14px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+#list_left2 .menubox2,.probox2,.dsahbox2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+#list_left2 .menubox2 div {
+  width: 32px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#list_left2 #b1_menu div {
+  justify-content: flex-end;
+}
+#list_left2 .left2_explain {
+  color: rgb(180, 180, 180);
+  cursor: default;
+}
+#list_left2 .flag1 {
+  background-color: #1B95EB;
+  border-radius: 16px;
+  color: white;
+}
+/*PRODUCTS*/
+#left2_b2 .probox div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#left2_b2 .probox2 div {
+  width: 32px;
+  height: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#left2_b2 .probox div div{
+  width: 32px;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+/*DASHBOARD*/
+#left2_b3 .dsahbox2 div {
+  width: 32px;
+  height: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#left2_b3 .dashbox div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#left2_b3 .dashbox div div {
+  width: 32px;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#list_left2 #left2_b3 .warn1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+/*进度条*/
+#list_left2 #left2_b4 p {
+  width: 192px;
+  cursor: default;
+}
+#list_left2 #left2_b4 {
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+/*点击Messages栏目*/
+#list_left2 #list_left2_selected {
+  color: white;
+}
+#list_left2 #heightlight {
+  width: 1px;
+  height: 2px;
+  position: relative;
+  left: -28px;
+  border: 0.5px solid #2A89E2;
+  background-color: #2A89E2;
+  border-radius: 0 2px 2px 0;
+}
+/*其他*/
+#list_left2 .left2_box div:first-child img {
+  cursor: pointer;
+}
+/*————左侧2固定栏开始 */
+/*————右上角个人栏开始*/
+/*中间自适应*/
+#informationArea {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 340px;
+  width: 100% - 340px;
+}
+#oneself {
+  padding: 0 240px 0 140px;
+  height: 75px;
+  min-width: 1000px;
+}
+#oneself > div {
+  height: 75px;
+  float: left;
+  border-bottom: 1px solid #E6E6E6;
+}
+#oneself .one_center {
+  background-color: white;
+  width: 100%;
+}
+#oneself .one_left {
+  background-color: white;
+  width: 140px;
+  margin-left: -100%;
+  position: relative;
+  left: -140px;
+}
+#oneself .one_right {
+  background-color: white;
+  width: 240px;
+  margin-left: -240px;
+  position: relative;
+  right: -240px;
+}
+/*左标签*/
+#oneself .title_up {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#oneself .title_up h2{
+  font-weight: lighter;
+}
+/*右侧信息栏*/
+#oneself #personal div {
+  height: 75px;
+  float: left;
+}
+#oneself #personal .per1 {
+  width: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#oneself #personal .per1 .statusIcon {
+  position: relative;
+  left: -18px;
+  bottom: -14px;
+  border: 4px solid white;
+  border-radius: 9px;
+}
+#oneself #personal .per2 {
+  width: 90px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+#oneself #personal .per2 p:first-child {
+  color: #1B95EB;
+  margin: 0;
+}
+#oneself #personal .per2 p:last-child {
+  color: #A9A7A8;
+  font-size: 14px;
+  margin: 0;
+}
+#oneself #personal .per3 {
+  width: 50px;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#oneself #personal .per3 img {
+  vertical-align: middle;
+}
+/*————右上角个人栏结束*/
+/*————关注列表开始*/
+#attention {
+  width: 400px;
+  height: 100%;
+  overflow: hidden;
+  border-right: 1px solid #E6E6E6;
+}
+#attention #atten_list {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#attention > div {
+  width: 400px;
+}
+#attention #search {
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #E6E6E6;
+}
+#attention #search input {
+  width: 330px;
+  height: 35px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+#attention #search img {
+  position: relative;
+  left: -30px;
+  cursor: pointer;
+}
+/*笔友*/
+#attention .pen1 {
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-top: 16px;
+  height: 130px;
+  border-bottom: 1px solid #E6E6E6;
+}
+#attention .pen1 .pen_up {
+  height: 50px;
+}
+
+#attention .pen1 .pen_up .Avatar {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#attention .pen1 .pen_up .biref {
+  width: 190px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#attention .pen1 .pen_up .biref p {
+  margin: 0;
+}
+
+#attention .pen1 .pen_up .outtime {
+  width: 130px;
+  float: right;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+#attention .pen1 .pen_up > div {
+  float: left;
+  height: 50px;
+}
+#attention .pen1 .pen_down {
+  height: 46px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#attention .pen1 .pen_down p {
+  font-size: 14px;
+  width: 308px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 8px 0;
+  color: #5A5B5D;
+}
+#attention .pen1 .pen_down .infoWarn {
+  width: 24px;
+  height: 24px;
+  background-color: #1B95EB;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  line-height: 24px;
+}
+/*其他*/
+#attention #atten_list #selected {
+  width: 3px;
+  height: 130px;
+  background-color: #1B95EB;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#attention .pen1 .pen_up .biref div.point {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #1B95EB;
+} 
+#attention .pen1 .pen_up .biref .item_selected {
+  color: #1B95EB;
+  margin-left: 5px;
+}
+#attention .pen1 .pen_up .biref > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#attention .pen1 .pen_up .biref .tab {
+  color: #848B91;
+}
+#attention .pen1 .pen_up .outtime p {
+  color: #848B91;
+}
+#attention #atten_list_auto {
+  flex: 1;
+}
+/*————关注列表结束*/
+/*————白区开始*/
+#whiteArea {
+  /* padding-left: 400px; */
+  min-width: 400px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+#whiteArea #info_content {
+  width: 100%;
+  flex: 1;
+}
+#whiteArea #attention {
+  min-width: 400px;
+}
+/*————白区结束*/
+/*——按钮区开始*/
+#operate_button_list {
+  height: 65px;
+  padding: 0 300px 0 125px;
+}
+/*自适应 《 */
+#operate_button_list > div {
+  height: 65px;
+  float: left;
+  border-bottom: 1px solid #E6E6E6;
+}
+#operate_button_list #button_list_auto {
+  width: 100%;
+  flex: 1;
+}
+#operate_button_list #button_list_left {
+  width: 125px;
+  /* background-color: seagreen; */
+  margin-left: -100%;
+  position: relative;
+  left: -125px;
+}
+#operate_button_list #button_list_right {
+  width: 300px;
+  /* background-color: slateblue; */
+  margin-left: -300px;
+  position: relative;
+  right: -300px;
+}
+/* 》 自适应*/
+#operate_button_list #subjectSperson {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#button_list_right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#button_list_right > div {
+  margin: 0;
+}
+#button_list_right #button_setting {
+  display: flex;
+  flex-direction: row;
+}
+#button_list_right #button_setting input {
+  width: 35px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #D8D8DA;
+}
+#button_list_right #button_setting input + input {
+  border-left: 0;
+}
+#button_setting input:first-child {
+  border-radius: 4px 0 0 4px;
+}
+#button_setting input:last-child {
+  border-radius: 0 4px 4px 0;
+}
+#button_list_right #button_info {
+  height: 30px;
+}
+#button_list_right #button_info p {
+  margin: 0;
+  font-size: 16px;
+}
+#button_list_right #button_direction {
+  display: flex;
+  flex-direction: row;
+}
+#button_list_right #button_direction input {
+  width: 35px;
+  height: 30px;
+  border: 1px solid #D8D8DA;
+}
+#button_list_right #button_direction input + input {
+  border-left: 0;
+}
+#button_direction input:first-child {
+  border-radius: 4px 0 0 4px;
+}
+#button_direction input:last-child {
+  border-radius: 0 4px 4px 0;
+}
+#button_list_right .buttomIcon_User {
+  background: #EFEFEF url(../image/Icon/User\ icon.png) no-repeat center;
+}
+#button_list_right .buttomIcon_Upload {
+  background: #EFEFEF url(../image/Icon/Upload\ icon.png) no-repeat center;
+}
+#button_list_right .buttomIcon_Trash {
+  background: #EFEFEF url(../image/Icon/Trash\ icon.png) no-repeat center;
+}
+#button_list_right .buttomIcon_ArrowL {
+  background: #EFEFEF url(../image/Icon/Arrow\ left.png) no-repeat center;
+}
+#button_list_right .buttomIcon_ArrowR {
+  background: #EFEFEF url(../image/Icon/Arrow\ right.png) no-repeat center;
+}
+/*——按钮区结束*/
+/*————白色区内容列表开始*/
+#news_cententArea .messagesBox > div{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+#news_cententArea .messagesBox .nameAndTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#news_cententArea .messagesBox .nameAndTime p:last-child {
+  color: #838793;
+}
+#news_cententArea .messagesBox .chatCententArea {
+  color: #5A5B5D;
+}
+#news_cententArea .chatInterface {
+  margin: 20px 0;
+}
+#news_cententArea .charAvater {
+  margin: 0 28px;
+}
+#news_cententArea .messagesBox p {
+  margin: 0 10px 6px 0;
+}
+#news_cententArea .showTimeDay {
+  width: 100%;
+}
+#news_cententArea .showTimeDay .p_left {
+  flex: 1;
+  height: 15px;
+  border-bottom: 1px solid black;
+}
+#news_cententArea .showTimeDay .p_center {
+  /* width: 150px; */
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#news_cententArea .showTimeDay .p_right {
+  flex: 1;
+  height: 15px;
+  border-bottom: 1px solid black;
+}
+#messagesBox2 .showTimeDay p:first-child {
+  border-bottom: 1px solid #1F90DB;
+}
+#messagesBox2 .showTimeDay .p_center {
+  color: #1F90DB;
+}
+#messagesBox2 .showTimeDay p:last-child {
+  border-bottom: 1px solid #1F90DB;
+}
+#messagesBox2 #photoArea .photo {
+  float: left;
+  margin: 20px 8px 0 0;
+  position: relative;
+}
+#messagesBox2 #photoArea .photo img {
+  border-radius: 4px;
+}
+#photoArea .photo2 .screen {
+  width: 156px;
+  height: 100px;
+  border-radius: 4px;
+  background-color: rgb(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  display: none;
+}
+#photoArea .photo2 .screen img {
+  margin-top: 50%;
+  margin-left: 50%;
+  position: relative;
+  top: -50px;
+  left: -25px;
+}
+#photoArea .photo2 img:hover + .screen {
+  display: block;
+}
+#photoArea .photo2 .screen:hover {
+  display: block;
+}
+/*box3*/
+#addNewMessages {
+  /* width: 920px; */
+  padding: 0 26px;
+}
+#addNewMessages input {
+  padding: 0;
+  margin-bottom: 30px;
+  border: 1px solid #D1D1D1;
+}
+#addNewMessages input[type="button"] {
+  width: 55px;
+  height: 52px;
+  border-radius: 4px 0 0 4px;
+  background: #F5F6FA url(../image/Icon/Add\ icon.png) no-repeat center;
+}
+#addNewMessages input[type="text"] {
+  flex: 1;
+  height: 50px;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+  padding-left: 20px;
+  line-height: 50px;
+}
+/*————白色区内容列表结束*/
+/*——标识开始*/
+body div.circleGreenPoint {
+  width: 8px;
+  height: 8px;
+  background-color: #2AB63C;
+  border-radius: 4px;
+}
+/*——标识结束*/
