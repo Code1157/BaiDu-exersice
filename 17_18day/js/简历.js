@@ -5,12 +5,12 @@ function func(){
   var d = new Date();
   var getH = d.getHours();
   //var sH = Number(getH);
-  //console.log(sH);
-  if(getH > 6 || getH < 12)
+  // console.log(getH);
+  if(getH > 6 && getH <= 12)
     window.alert("早上好！");
-  else if(getH > 12 || getH < 15)
+  else if(getH > 12 && getH <= 15)
     window.alert("中午好！");
-  else if(getH > 15 || getH < 19)
+  else if(getH > 15 && getH <= 19)
     window.alert("下午好！");
   else 
     window.alert("晚上好！");
