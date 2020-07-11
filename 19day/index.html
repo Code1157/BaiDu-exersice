@@ -34,54 +34,62 @@
       </div>
     </div>
     <script>
-      function getAllListItem() {
-        // 1.返回页面中所有li标签
-        var liArray = document.getElementsByTagName("li");
-        console.log(liArray);
-        return liArray;
-      }
-      getAllListItem();
-
-      //采用递归调用的方法。
-      var sectionId = document.getElementById("news-normal");
-      var map = {};
-      function findAllHtmlSpanInOneSection(sectionId) {
-        // 2.返回某个section下所有span中内容为HTML的span标签
-        if (sectionId.nodeType === 1 && sectionId.textContent == "HTML") {
-          console.log(sectionId);
-        }
-        //获取该元素节点的所有子节点,————这里遍历整个网页寻找id
-        var children = sectionId.childNodes;
-        for (var i = 0; i < children.length; i++) {
-          //递归调用
-          findAllHtmlSpanInOneSection(children[i]);
-        }
-        return sectionId;
-      }
-      findAllHtmlSpanInOneSection(sectionId);
-
-      var sCont = "spanCont";
-      function findListItem(sectionId, spanCont) {
-        // 3.返回某个section下，所有所包含span内容为spanCont的LI标签
-        if (sectionId.nodeType === 1 && sectionId.textContent == spanCont) {
-          console.log(sectionId.parentNode);
-        }
-        var children = sectionId.childNodes;
-        for (var i = 0; i < children.length; i++) {
-          findListItem(children[i]);
-        }
-      }
-      findListItem(sectionId);
-
-      function getActiveLinkContent(sectionId) {
-        // 4.返回某个section下，class为active的链接中包含的文字内容
-      }
-
       //在这个练习中仅允许使用以下 DOM 方法或属性，不得使用高级选择器：
       // getElementById()
       // getElementsByTagName()
       // childNodes
       // parentNode
+
+      function getAllListItem() {
+        // 1.返回页面中所有li标签                                      //高级选择器替换：↓
+        var liArray = document.getElementsByTagName("li");             //替换：.querySelectorAll("li");
+        console.log(liArray);
+        return liArray;
+      }
+      getAllListItem();
+
+      function findAllHtmlSpanInOneSection(sectionId) {
+        // 2.返回某个section下所有span中内容为HTML的span标签
+        var cSection = document.getElementsByClassName(sectionId)[1];  //替换：.querySelector(sectionId);
+        var tSpan = cSection.getElementsByTagName("span");             //替换：.querySelectorAll("span");
+        var map = new Array();
+        for(var i=0; i<tSpan.length; i++){
+          if(tSpan[i].textContent == "HTML"){
+            map.push(tSpan[i]);
+          }
+        }
+        console.log(map);
+        return map;
+      }
+      findAllHtmlSpanInOneSection("section");                          //替换：findAllHtmlSpanInOneSection(".section");
+
+      function findListItem(sectionId, spanCont) {
+        // 3.返回某个section下，所有所包含span内容为spanCont的LI标签
+        var cSection = document.getElementsByClassName(sectionId)[1];  //替换：.querySelector(sectionId);
+        var tSpan = cSection.getElementsByTagName("span");             //替换：.querySelectorAll("span");
+        var map = new Array();
+        for(var i=0; i<tSpan.length; i++){
+          if(tSpan[i].textContent == spanCont){
+            map.push(tSpan[i].parentNode);
+          }
+        }
+        console.log(map);
+        return map;
+      }
+      findListItem("section","spanCont");                              //替换：findListItem(".section","spanCont");
+
+      function getActiveLinkContent(sectionId) {
+        // 4.返回某个section下，class为active的链接中包含的文字内容
+        var cSection = document.getElementsByClassName(sectionId)[0];  //替换：.querySelector(sectionId);
+        var cActive = cSection.getElementsByClassName("active");       //替换：.querySelectorAll(".active");
+        var map = new Array();
+        for(var i=0; i<cActive.length; i++){
+          map.push(cActive[i].innerHTML);
+        }
+        console.log(map);
+        return map;
+      }
+      getActiveLinkContent("section");                                 //替换：getActiveLinkContent(".section");
     </script>
   </body>
 </html>
