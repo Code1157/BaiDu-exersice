@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="name" type="text" />
+    <button id="submit-btn">Submit</button>
+  </body>
+  <script>
+    var butButton = document.querySelector("#submit-btn");
+    var inpText = document.querySelector("#name");
+    butButton.onclick = function () {
+      var out = inpText.value;
+      console.log(out);
+    };
+
+    function inputKey(event) {
+      var out = inpText.value;
+      if (event.charCode == 13) {
+        console.log(out);
+      }
+      if (event.charCode == 27) {
+        inpText.value = "";
+      }
+    }
+    inpText.addEventListener("keypress", inputKey, false);
+  </script>
+</html>
