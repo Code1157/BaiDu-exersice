@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="stack-input" type="text" />
+    <p id="stack-cont">栈内容：apple-&gt;pear</p>
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="font-btn">打印栈顶元素内容</button>
+    <button id="empty-btn">判断栈是否为空</button>
+
+    <script>
+      var stack = ["apple", "pear"];
+      var sInp = document.querySelector("#stack-input");
+      var sCont = document.querySelector("#stack-cont");
+      var btnPush = document.querySelector("#push-btn");
+      btnPush.onclick = function () {
+        if (sInp.value != "") {
+          stack.push(sInp.value);
+        }
+        for (var i = 0; i < stack.length; i++) {
+          if (i == 0) {
+            sCont.innerHTML = "栈内容：" + stack[0];
+          } else {
+            sCont.innerHTML += "->" + stack[i];
+          }
+        }
+        console.log(stack);
+        sInp.value = "";
+        sInp.focus();
+      };
+
+      var btnPop = document.querySelector("#pop-btn");
+      btnPop.onclick = function () {
+        if (stack.length >= 1) {
+          stack.pop();
+        }
+        if (stack.length == 0) {
+          sCont.innerHTML = "栈内容：";
+        }
+        for (var i = 0; i < stack.length; i++) {
+          if (i == 0) {
+            sCont.innerHTML = "栈内容：" + stack[0];
+          } else {
+            sCont.innerHTML += "->" + stack[i];
+          }
+        }
+        console.log(stack);
+      };
+
+      var btnFont = document.querySelector("#font-btn");
+      btnFont.onclick = function () {
+        console.log(stack[stack.length - 1]);
+      };
+
+      var btnEmpty = document.querySelector("#empty-btn");
+      btnEmpty.onclick = function () {
+        if (stack.length >= 1) {
+          console.log("非空。");
+        } else {
+          console.log("不为空。");
+        }
+      };
+    </script>
+  </body>
+</html>
