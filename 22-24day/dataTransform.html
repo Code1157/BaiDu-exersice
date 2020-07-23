@@ -51,58 +51,26 @@
         [7, "Area1-2-3", 4],
         [8, "Area2-2-1", 6],
       ];
-      var fun2 = function (array) {
-        var str = {};
-        for (var i = 0; i < array.length; i++) {
-          var ary = [];
-          // console.log[array[i]];
-          ary = array[i];
-          if (ary[2] == -1) {
-            str[ary[0]] = {
-              name: ary[1],
-              subMenu: {},
-            };
-          }
-          if (ary[2] == 1) {
-            str["1"]["subMenu"][ary[0]] = {
-              name: ary[1],
-              subMenu: {},
-            };
-          }
-          if (ary[2] == 2) {
-            str["2"]["subMenu"][ary[0]] = {
-              name: ary[1],
-              subMenu: {},
-            };
-          }
-          if (ary[2] == 4) {
-            str["1"]["subMenu"]["4"]["subMenu"][ary[0]] = {
-              name: ary[1],
-              subMenu: {},
-            };
-          }
-          if (ary[2] == 6) {
-            str["2"]["subMenu"]["6"]["subMenu"][ary[0]] = {
-              name: ary[1],
-              subMenu: {},
-            };
+      //借鉴地址：https://github.com/XYShaoKang/2018-baidu-ife-course-record/blob/master/other/JavaScript/day22/js/code8.js
+      function arrToObj(arr, root) {
+        var obj = {};
+        for (const iterator of arr) {
+          //出口条件
+          if (iterator[2] == root) {
+            obj[iterator[0]] = {};
+            obj[iterator[0]].name = iterator[1];
+            console.log(iterator[1]);
+            var tempObj = arrToObj(arr, iterator[0]);//子菜单
+            //非出口条件
+            if (Object.keys(tempObj).length > 0) {
+              obj[iterator[0]].subMenu = tempObj;
+            }
           }
         }
-        return str;
-      };
-      console.log(fun2(menuArr));
-
-      // numb0.push(item[0]);
-      // if (item[2] == -1) {
-      //   // str += item[0] + ":{ name:" + item[1] + ",},";
-      //   str[item[0]] = "name:" + item[1];
-      // }
-      // //有先祖元素
-      // var i = numb0.indexOf(item[2]); // 获取 numb0数组中的下标
-      // if (i != -1) {
-      //   str[numb0[i]][item[0]] = "name:" + item[1];
-      //   console.log(str);
-      // }
+        return obj;
+      }
+      //初始条件
+      console.log("数组转对象", arrToObj(menuArr, -1));
     </script>
   </body>
 </html>
