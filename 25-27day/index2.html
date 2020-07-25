@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="timeDiff()">
+    <select id="year-select">
+      <option value="1970">1970</option>
+    </select>
+
+    <select id="month-select">
+      <option value="1">1</option>
+    </select>
+
+    <select id="day-select">
+      <option value="1">1</option>
+    </select>
+
+    <select id="hour-select">
+      <option value="0">0</option>
+    </select>
+
+    <select id="minite-select">
+      <option value="0">0</option>
+    </select>
+
+    <select id="second-select">
+      <option value="0">0</option>
+    </select>
+
+    <p id="result-wrapper"></p>
+
+    <script src="js/index2-1.js"></script>
+    <script>
+      var selYear = document.getElementById("year-select");
+      var selMonth = document.getElementById("month-select");
+      var selDay = document.getElementById("day-select");
+      var selHour = document.getElementById("hour-select");
+      var selMinite = document.getElementById("minite-select");
+      var selSecond = document.getElementById("second-select");
+      var selY = 0 + "年";
+      var selMo = 1 + "月";
+      var selD = 1 + "日";
+      var selH = "0" + 0;
+      var selMi = "0" + 0;
+      var selS = "0" + 0;
+      var flag = false; //过去的时间
+      var leapYear = false; //闰年
+      //获取设置的时间
+      selYear.onclick = function () {
+        selY = selId(selYear) + "年";
+        isLeapYear(); //判断闰年
+        timeDiff();
+      };
+      selMonth.onclick = function () {
+        selMo = selId(selMonth) + "月";
+        anyMonthDay(); //判断月份对应的天数
+        timeDiff();
+      };
+      selDay.onclick = function () {
+        selD = selId(selDay) + "日";
+        timeDiff();
+      };
+      selHour.onclick = function () {
+        selH = selId(selHour);
+        timeDiff();
+      };
+      selMinite.onclick = function () {
+        selMi = selId(selMinite);
+        timeDiff();
+      };
+      selSecond.onclick = function () {
+        selS = selId(selSecond);
+        timeDiff();
+      };
+      //获取鼠标点击的值
+      function selId(idName) {
+        var index = idName.selectedIndex;
+        var item = idName.options;
+        var checkVal = checkT(item[index].text);
+        return checkVal;
+      }
+      //判断闰年
+      function isLeapYear() {
+        if (
+          (parseInt(selY) % 4 == 0 && parseInt(selY) % 100 != 0) ||
+          parseInt(selY) % 400 == 0
+        ) {
+          leapYear = true;
+        } else {
+          leapYear = false;
+        }
+        anyMonthDay();
+      }
+      //动态改变每个月的天数
+      function anyMonthDay() {
+        var dayOptions = 0;
+        var dd = 0;
+        selDay.options.length = 0; //删除所有options
+        if (leapYear) {
+          switch (parseInt(selMo)) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+              dayOptions = 31;
+              break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+              dayOptions = 30;
+              break;
+            case 2:
+              dayOptions = 29;
+              break;
+          }
+        } else {
+          switch (parseInt(selMo)) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+              dayOptions = 31;
+              break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+              dayOptions = 30;
+              break;
+            case 2:
+              dayOptions = 28;
+              break;
+          }
+        }
+        while (dd++ < dayOptions) {
+          let option = document.createElement("option");
+          option.text = dd;
+          try {
+            selDay.add(option, selDay.options[null]);
+          } catch (e) {
+            selDay.add(option, null);
+          }
+        }
+      }
+      //计算周几
+      var weekC = function () {
+        var week = [
+          "星期天",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ];
+        var d = new Date(
+          Date.parse(
+            parseInt(selY) + "/" + parseInt(selMo) + "/" + parseInt(selD)
+          )
+        );
+        return week[d.getDay()];
+      };
+      //计算天数
+      var countDay = function () {
+        var d = new Date();
+        var setDate =
+          Date.parse(
+            parseInt(selY) + "-" + parseInt(selMo) + "-" + parseInt(selD)
+          ) +
+          parseInt(selH) * 60 * 60 * 1000 +
+          parseInt(selMi) * 60 * 1000 +
+          parseInt(selS) * 1000; //19701/1到设置的时间的毫秒数
+        var nowDate = d.getTime(); //1970/1/1到今天到毫秒数
+        if (setDate >= nowDate) {
+          //判断设置的时间在过去还是未来
+          flag = true;
+        } else {
+          flag = false;
+        }
+        var cDay = Math.abs(setDate - nowDate) / 1000 / 60 / 60 / 24;
+        return cDay;
+      };
+      //计算小时
+      var countHour = function () {
+        var cHour = floatN(countDay()) * 24;
+        return cHour;
+      };
+      //计算分钟
+      var countMinite = function () {
+        var cMinite = floatN(countHour()) * 60;
+        return cMinite;
+      };
+      //计算秒
+      var countSecond = function () {
+        var cSecond = floatN(countMinite()) * 60;
+        return cSecond;
+      };
+
+      //打印输出计算的天/小时/分/秒
+      var result = document.getElementById("result-wrapper");
+      function timeDiff() {
+        if (flag) {
+          result.innerHTML =
+            "现在距离 " +
+            selY +
+            selMo +
+            selD +
+            weekC() +
+            " " +
+            selH +
+            ":" +
+            selMi +
+            ":" +
+            selS +
+            " 还有 " +
+            parseInt(countDay()) +
+            " 天 " +
+            parseInt(countHour()) +
+            " 小时 " +
+            parseInt(countMinite()) +
+            " 分 " +
+            parseInt(countSecond()) +
+            " 秒";
+          setTimeout(timeDiff, 100);
+        } else {
+          result.innerHTML =
+            "现在距离 " +
+            selY +
+            selMo +
+            selD +
+            weekC() +
+            " " +
+            selH +
+            ":" +
+            selMi +
+            ":" +
+            selS +
+            " 已经过去 " +
+            parseInt(countDay()) +
+            " 天 " +
+            parseInt(countHour()) +
+            " 小时 " +
+            parseInt(countMinite()) +
+            " 分 " +
+            parseInt(countSecond()) +
+            " 秒";
+          setTimeout(timeDiff, 100);
+        }
+      }
+      //数字小于1位补0
+      function checkT(n) {
+        if (n < 10 && n.length < 2) {
+          n = "0" + n;
+        }
+        return n;
+      }
+      //小数点
+      function floatN(f) {
+        var arr = f.toString().split(".");
+        var numb = Number("0." + arr[1]);
+        return numb;
+      }
+    </script>
+  </body>
+</html>

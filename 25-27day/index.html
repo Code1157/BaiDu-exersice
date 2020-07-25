@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body >
+    <p id="time1"></p>
+    <p id="time2"></p>
+    <script>
+      var pp1 = document.getElementById("time1");
+      var pp2 = document.getElementById("time2");
+
+      function showT() {
+        pp1.innerHTML = year() + "年" + month() + "月" + day() + "日" + weekC() + " " + time();
+        pp2.innerHTML = year() + "-" + month() + "-" + day() + " " + weekE() + " " + time2();
+      }
+      setInterval(showT,100);
+      
+      var year = function () {
+        var d = new Date();
+        return d.getFullYear();
+      }
+      var month = function () {
+        var d = new Date();
+        return  checkT(d.getMonth());
+      }
+      var day = function () {
+        var d = new Date();
+        return checkT(d.getDate());
+      }
+      var weekC = function () {
+        var d = new Date();
+        var week = new Array(7);
+        week[0] = "星期日";
+        week[1] = "星期一";
+        week[2] = "星期二";
+        week[3] = "星期三";
+        week[4] = "星期四";
+        week[5] = "星期五";
+        week[6] = "星期六";
+        return week[d.getDay()];
+      }
+      var weekE = function () {
+        var d = new Date();
+        var week = new Array(7);
+        week[0] = "Sunday";
+        week[1] = "Monday";
+        week[2] = "Tuesday";
+        week[3] = "Wednesday";
+        week[4] = "Thursday";
+        week[5] = "Firday";
+        week[6] = "Saturay";
+        return week[d.getDay()];
+      }
+      var time = function () {
+        var d = new Date();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var seconds = d.getSeconds();
+
+        hour = checkT(hour);
+        minute = checkT(minute);
+        seconds = checkT(seconds);
+        return hour + ":" + minute + ":" + seconds;
+      }
+      var time2 = function () {
+        var d = new Date();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var seconds = d.getSeconds();
+        var ap = "";
+
+        hour = checkT(hour);
+        minute = checkT(minute);
+        seconds = checkT(seconds);
+        if(Number(hour) < 12) {
+          ap = " AM";
+        }else{
+          ap = " PM";
+        }
+        return hour + ":" + minute + ":" + seconds + ap;
+      }
+
+      function checkT(n) {
+        if(n < 10) {
+          n = "0" + n;
+        }
+        return n;
+      }
+    </script>
+  </body>
+</html>
